@@ -102,7 +102,14 @@ MONGODB_URI=tu_uri_de_mongodb
 DEEPSEEK_API_KEY=tu_api_key
 ```
 La variable PORT default del backend es 5000.
-Para no complicarlo más, en el frontend está configurado a mano en api.js la conexión directa a const API_BASE_URL = "http://localhost:5000"; 
+Para no complicarlo más, en el frontend está configurado a mano en api.js la conexión directa a:
+```env
+PORT = 5000; 
+```
+
+```env
+const API_BASE_URL = "http://localhost:5000"; 
+```
 
 4. Iniciar el proyecto:
 ```bash
