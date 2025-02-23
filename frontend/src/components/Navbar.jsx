@@ -11,12 +11,9 @@ function Navbar() {
           <Link to="/" className="transition-all text-xl hover:scale-105 inline-block">
             Inicio
           </Link>
-          <Link to="/clientes" className="transition-all text-xl hover:scale-105 inline-block">
-            Clientes
-          </Link>
         </div>
-        <div className="text-2xl font-bold tracking-tight transition-colors opacity-0">
-          <Link to="/">FitOffice</Link>
+        <div className="text-2xl font-bold cursor-default tracking-tight transition-colors opacity-0">
+          FitOffice
         </div>
       </div>
     </nav>

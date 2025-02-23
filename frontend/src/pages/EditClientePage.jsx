@@ -1,6 +1,6 @@
 // src/pages/EditClientePage.jsx
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { getClienteById, actualizarCliente } from '../services/api';
 
 function EditClientePage() {
@@ -8,7 +8,8 @@ function EditClientePage() {
   const [cliente, setCliente] = useState(null);
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
+  const location = useLocation();
+  
   useEffect(() => {
     const fetchCliente = async () => {
       try {
@@ -28,8 +29,19 @@ function EditClientePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await actualizarCliente(clienteId, cliente);
-      navigate(`/cliente/${clienteId}`);
+      await actualizarCliente(clienteId, {
+        ...cliente,
+        historialEntrenamiento: typeof cliente.historialEntrenamiento === 'string' 
+          ? cliente.historialEntrenamiento.split(',').map(item => item.trim())
+          : cliente.historialEntrenamiento
+      });
+      
+      // Check if we came from the clients list or detail page
+      if (location.state && location.state.from === 'clientes') {
+        navigate('/clientes');
+      } else {
+        navigate(`/cliente/${clienteId}`);
+      }
     } catch (err) {
       setError('Error al actualizar el cliente.');
     }
@@ -150,7 +162,7 @@ function EditClientePage() {
             Guardar Cambios
           </button>
           <Link 
-            to={`/cliente/${clienteId}`}
+            to={location.state?.from === 'clientes' ? '/clientes' : `/cliente/${clienteId}`}
             className="bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300 transform hover:scale-105 transition-all duration-200 shadow-md"
           >
             Cancelar

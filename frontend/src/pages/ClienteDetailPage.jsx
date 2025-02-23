@@ -69,6 +69,7 @@ function ClienteDetailPage() {
         <div className="flex space-x-3">
           <Link
             to={`/editar-cliente/${cliente._id}`}
+            state={{ from: 'detail' }}
             className="bg-gradient-to-r from-green-500 to-emerald-600 text-white py-2 px-4 rounded-lg hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition-all duration-200 shadow-md"
           >
             Editar
@@ -98,7 +99,17 @@ function ClienteDetailPage() {
           </div>
         </div>
       </div>
-
+      <div className="flex space-x-6 mb-4">
+        <button onClick={handleGenerarRutina} className="btn-primary">
+          Generar Nueva Rutina
+        </button>
+        <Link 
+          to="/clientes" 
+          className="bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300 transform hover:scale-105 transition-all duration-200 shadow-md"
+        >
+          Volver a Clientes
+        </Link>
+      </div>
       <div className="mb-8">
         <h3 className="text-2xl font-bold text-gray-800 mb-4">Rutinas Generadas</h3>
         {rutinas.length === 0 ? (
@@ -126,17 +137,7 @@ function ClienteDetailPage() {
         )}
       </div>
 
-      <div className="flex space-x-4">
-        <button onClick={handleGenerarRutina} className="btn-primary">
-          Generar Nueva Rutina
-        </button>
-        <Link 
-          to="/clientes" 
-          className="bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300 transform hover:scale-105 transition-all duration-200 shadow-md"
-        >
-          Volver a Clientes
-        </Link>
-      </div>
+      
     </div>
   );
 }

@@ -175,6 +175,7 @@ function ClientesPage() {
                 <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex space-x-2">
                   <Link
                     to={`/editar-cliente/${cliente._id}`}
+                    state={{ from: 'clientes' }}
                     className="bg-gradient-to-r from-green-500 to-emerald-600 text-white py-2 px-4 rounded-lg hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition-all duration-200 shadow-md"
                   >
                     Editar
