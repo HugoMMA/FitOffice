@@ -10,10 +10,10 @@ const ClienteSchema = new mongoose.Schema({
     enum: ["Pérdida de peso", "Ganancia muscular", "Mantenimiento", "Otro"], 
     required: true 
   },
-  historialEntrenamiento: { type: [String], default: [] }, // Puedes ajustar el tipo según necesites
+  historialEntrenamiento: { type: [String], default: [] }, 
 }, { timestamps: true });
 
-// Replace pre-remove with pre-deleteOne middleware
+// Eliminar las rutinas asociadas a un cliente al eliminar el cliente
 ClienteSchema.pre('deleteOne', { document: false, query: true }, async function() {
     const doc = await this.model.findOne(this.getQuery());
     if (doc) {

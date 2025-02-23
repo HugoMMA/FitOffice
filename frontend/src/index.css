@@ -44,7 +44,7 @@
   border-radius: 50%;
   transition: all 0.3s ease;
   top: 50% !important;
-  z-index: 20 !important; /* Increased z-index to appear above gradient */
+  z-index: 20 !important; 
 }
 
 .swiper-button-next {
@@ -120,9 +120,4 @@
   scrollbar-width: thin;
   scrollbar-color: #8b5cf6 #f3f4f6;
   -webkit-overflow-scrolling: touch;
-}
-
-/* Add this new style */
-.swiper-wrapper {
-  
 }

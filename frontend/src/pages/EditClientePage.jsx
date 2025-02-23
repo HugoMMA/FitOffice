@@ -36,7 +36,7 @@ function EditClientePage() {
           : cliente.historialEntrenamiento
       });
       
-      // Check if we came from the clients list or detail page
+      // Comprobar si venimos de la página de clientes
       if (location.state && location.state.from === 'clientes') {
         navigate('/clientes');
       } else {

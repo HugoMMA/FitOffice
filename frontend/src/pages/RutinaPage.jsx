@@ -77,15 +77,15 @@ function RutinaPage() {
               <h4 className="text-xl font-bold text-violet-600 mb-4">
                 Semana {week.weekNumber}
               </h4>
-              <div className="relative slider-container"> {/* Changed class name */}
+              <div className="relative slider-container"> {}
                 <Swiper
                   modules={[Navigation]}
                   navigation
                   spaceBetween={25}
                   slidesPerView={1}
                   breakpoints={{
-                    640: { slidesPerView: 2.2 }, // Increased to show partial slides
-                    1024: { slidesPerView: 3.2 }  // Increased to show partial slides
+                    640: { slidesPerView: 2.2 },
+                    1024: { slidesPerView: 3.2 }
                   }}
                   className="h-[auto]"
                 >
